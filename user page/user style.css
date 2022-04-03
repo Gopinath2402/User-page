@@ -1,0 +1,232 @@
+* {
+    padding: 0;
+    margin: 0;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+    font-family: 'Bakbak One', cursive;
+}
+
+
+/* main page style */
+
+body {
+    background: #2c2c2c;
+    width: 100%;
+    height: 100vh;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -100%;
+}
+
+.main-container.show-details {
+    animation: scrolldown 2s forwards;
+}
+
+@keyframes scrolldown {
+    100% {
+        top: 0;
+    }
+}
+
+.main-container h2 {
+    color: white;
+    font-size: 40px;
+}
+
+.container {
+    width: 80%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+}
+
+.container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(10, minmax(120px, 1fr));
+    position: relative;
+}
+
+.main-container::after {
+    content: "";
+    position: absolute;
+    left: 90%;
+    top: 9rem;
+    bottom: 7rem;
+    width: 5px;
+    border-radius: 5px;
+    background: linear-gradient( 130deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
+    box-shadow: -5px 0 10px 2px #000;
+}
+
+.container::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+
+.container::-webkit-scrollbar-track {
+    background: linear-gradient( 90deg, #434343, #434343 1px, #262626 0, #262626);
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #434343;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px hsl(0deg 0% 100% / 25%), inset -2px -2px 2px rgb(0 0 0 / 25%);
+}
+
+.card {
+    position: relative;
+    margin-left: 30px;
+    border: 2px solid white;
+    width: 300px;
+    height: 350px;
+    padding: 1rem 10rem 1rem 1rem;
+    border-radius: 16px;
+    transition: 0.5s;
+    cursor: pointer;
+    box-shadow: -2rem 0 3rem -2rem #000;
+    background: linear-gradient( 85deg, #434343, #262626);
+}
+
+.card.animation-other-card {
+    transform: rotate(3deg) translateX(130px);
+}
+
+.card.animation-select-card {
+    transform: rotate(3deg) translateY(-20px);
+}
+
+article img {
+    width: 150px;
+    height: 150px;
+    border-radius: 25%;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+article h3 {
+    font-size: 19px;
+    color: white;
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+article h3:hover {
+    color: hsl(0, 0%, 100%, 0.7);
+}
+
+
+/* details page style */
+
+.cont-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: -100%;
+}
+
+.cont-container.show-details {
+    animation: scrolldown 2s forwards;
+}
+
+@keyframes scrolldown {
+    100% {
+        top: 0;
+    }
+}
+
+.cont-container h2 {
+    position: absolute;
+    font-size: 40px;
+    color: white;
+    left: 50%;
+    top: 20px;
+    transform: translate(-50%);
+}
+
+.cont-container h2::after {
+    content: '';
+    background: linear-gradient( 130deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.detail-container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-side img {
+    border-radius: 10px;
+    height: 400px;
+    width: 350px;
+    border: 3px solid white;
+}
+
+.text-side {
+    position: relative;
+    padding: 10px;
+    height: 390px;
+    line-height: 55px;
+}
+
+.text-side h4 {
+    font-size: 25px;
+    z-index: 3;
+    color: #0056a0;
+    text-align: start;
+}
+
+.text-side span {
+    display: inline-block;
+    color: white;
+    transition: all 0.6s;
+}
+
+.text-side::before {
+    content: "";
+    background: linear-gradient( 130deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    z-index: -1;
+    border-radius: 12px;
+}
+
+.text-side::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: -1;
+    border-radius: 8px;
+}
